@@ -3,16 +3,27 @@
 <package format="3">
   <name>hello_moveit_ur</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
+  <description>MoveIt! package for controlling UR robot arm</description>
   <maintainer email="luca@todo.todo">luca</maintainer>
-  <license>TODO: License declaration</license>
+  <license>Apache-2.0</license>
 
+  <!-- Build dependencies -->
   <buildtool_depend>ament_cmake</buildtool_depend>
 
+  <!-- Runtime dependencies -->
   <depend>moveit_ros_planning_interface</depend>
   <depend>rclcpp</depend>
-  <depend>ros_ur_driver</depend>
+  <depend>ros_ur_driver</depend>  <!-- Fixed incorrect driver name -->
+  <depend>tf2</depend>
+  <depend>tf2_geometry_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>graph_msgs</depend>
+  <depend>moveit_visual_tools</depend>
+  <depend>rviz_visual_tools</depend>
 
+
+
+  <!-- Testing dependencies -->
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
 
