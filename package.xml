@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>hello_moveit_ur</name>
+  <name>basic_move</name>
   <version>0.0.0</version>
   <description>MoveIt! package for controlling UR robot arm</description>
   <maintainer email="luca@todo.todo">luca</maintainer>

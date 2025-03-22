@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(hello_moveit_ur)
+project(basic_move)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -16,19 +16,24 @@ find_package(moveit_visual_tools REQUIRED)
 find_package(rviz_visual_tools REQUIRED)
 
 
-# Add Executable
-add_executable(hello_moveit_ur src/hello_moveit_ur.cpp)
+# Add Executable (Corrected)
+add_executable(basic_move 
+  src/basic_move.cpp 
+  src/collision_objects.cpp
+  src/static_pos.cpp
+)
 
-# Include Directories
-target_include_directories(hello_moveit_ur PUBLIC
+
+# Include Directories 
+target_include_directories(basic_move PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
 
 # Set C++ Standard
-target_compile_features(hello_moveit_ur PUBLIC cxx_std_17)  # Fixed
+target_compile_features(basic_move PUBLIC cxx_std_17)  # Fixed
 
 # Link Dependencies
-ament_target_dependencies(hello_moveit_ur
+ament_target_dependencies(basic_move
   moveit_ros_planning_interface
   rclcpp
   tf2
@@ -39,7 +44,7 @@ ament_target_dependencies(hello_moveit_ur
 )
 
 # Install Executable
-install(TARGETS hello_moveit_ur
+install(TARGETS basic_move
   DESTINATION lib/${PROJECT_NAME})
 
 # Install Launch Files
