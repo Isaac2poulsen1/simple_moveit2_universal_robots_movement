@@ -26,6 +26,34 @@ moveit_msgs::msg::CollisionObject createTrolley(const std::string& frame_id) {
     return collision_object;
 }
 
+
+moveit_msgs::msg::CollisionObject createBoxFromOffset(
+    const std::string &planning_frame,
+    const geometry_msgs::msg::Pose &center_pose,
+    const geometry_msgs::msg::Vector3 &offset,
+    const geometry_msgs::msg::Vector3 &dimensions)
+{
+    moveit_msgs::msg::CollisionObject box;
+    box.header.frame_id = planning_frame;
+    box.id = "box_from_offset";
+
+    shape_msgs::msg::SolidPrimitive primitive;
+    primitive.type = primitive.BOX;
+    primitive.dimensions = {dimensions.x, dimensions.y, dimensions.z};
+
+    geometry_msgs::msg::Pose box_pose = center_pose;
+    box_pose.position.x += offset.x;
+    box_pose.position.y += offset.y;
+    box_pose.position.z += offset.z;
+
+    box.primitives.push_back(primitive);
+    box.primitive_poses.push_back(box_pose);
+    box.operation = box.ADD;
+
+    return box;
+}
+
+
 moveit_msgs::msg::CollisionObject createPlate(const std::string& frame_id) {
     moveit_msgs::msg::CollisionObject collision_object;
     collision_object.header.frame_id = frame_id;

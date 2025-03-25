@@ -14,4 +14,10 @@ moveit_msgs::msg::CollisionObject createTrolley(const std::string& frame_id);
 // Function to create a collision object (plate)
 moveit_msgs::msg::CollisionObject createPlate(const std::string& frame_id);
 
+moveit_msgs::msg::CollisionObject createBoxFromOffset(
+    const std::string &planning_frame,
+    const geometry_msgs::msg::Pose &center_pose,
+    const geometry_msgs::msg::Vector3 &offset,
+    const geometry_msgs::msg::Vector3 &dimensions);
+
 #endif // COLLISION_OBJECTS_HPP
